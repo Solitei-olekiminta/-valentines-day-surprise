@@ -1,0 +1,127 @@
+/* Basic Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    background: linear-gradient(45deg, #ff66cc, #ff3366);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    color: white;
+}
+
+.container {
+    text-align: center;
+    padding: 20px;
+    border-radius: 10px;
+    background: rgba(0, 0, 0, 0.5);
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+h1 {
+    font-size: 2.5em;
+    margin-bottom: 20px;
+    font-weight: bold;
+    transition: color 1s ease-in-out;
+}
+
+button {
+    background-color: #ff66cc;
+    color: white;
+    padding: 15px 30px;
+    font-size: 1.2em;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+button:hover {
+    background-color: #ff3366;
+    transform: scale(1.1);
+}
+
+/* Heart Animation */
+.heart-container {
+    position: absolute;
+    top: 20%;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.heart {
+    width: 100px;
+    height: 100px;
+    background-color: #ff3366;
+    position: relative;
+    animation: heartAnimation 2s ease-out forwards;
+}
+
+.heart:before,
+.heart:after {
+    content: '';
+    position: absolute;
+    width: 100px;
+    height: 100px;
+    background-color: #ff3366;
+    border-radius: 50%;
+}
+
+.heart:before {
+    left: 50px;
+    top: 0;
+}
+
+.heart:after {
+    left: 0;
+    top: 50px;
+}
+
+@keyframes heartAnimation {
+    0% {
+        transform: scale(0) rotate(0deg);
+    }
+    50% {
+        transform: scale(1.2) rotate(45deg);
+    }
+    100% {
+        transform: scale(0) rotate(90deg);
+    }
+}
+
+/* Confetti Style */
+#confetti {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 9999;
+}
+
+/* New additional message styles */
+.hidden {
+    display: none;
+}
+
+#additional-message, #closing-message, #signature {
+    font-size: 1.2em;
+    margin-top: 20px;
+    color: #fff;
+    font-style: italic;
+    opacity: 0;
+    transition: opacity 1s ease-in-out;
+}
+
+#signature {
+    font-size: 1.5em;
+    font-weight: bold;
+    margin-top: 30px;
+    color: #ffcc00; /* A warm yellow for a signature feel */
+}
